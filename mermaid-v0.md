@@ -6,15 +6,18 @@
     'edgeLabelBackground': '#f9f9f9',
     'tertiaryColor': '#a0a0a0',
     'lineColor': '#666666',
-    'fontSize': '14px',
-    'fontFamily': 'Arial, sans-serif'
+    'fontSize': '13px',
+    'fontFamily': 'Arial, sans-serif',
+    'classBackground': '#ffffff',
+    'classBorder': '#5a6d70',
+    'classShadow': '2px 2px 5px rgba(90,109,112,0.2)'
   },
   'flowchart': {
     'curve': 'linear'
   },
   'class': {
-    'fontSize': '14px',
-    'nodePadding': 10
+    'fontSize': '13px',
+    'nodePadding': 25
   }
 }}%%
 classDiagram
