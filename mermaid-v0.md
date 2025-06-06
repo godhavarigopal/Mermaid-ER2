@@ -1,129 +1,128 @@
 ```mermaid
-%%{init: {'theme': 'forest'}}%%
+%%{init: {
+  'theme': 'neutral',
+  'themeVariables': {
+    'primaryColor': '#3b4c4f',
+    'edgeLabelBackground': '#f9f9f9',
+    'tertiaryColor': '#a0a0a0',
+    'lineColor': '#666666',
+    'fontSize': '14px',
+    'fontFamily': 'Arial, sans-serif'
+  },
+  'flowchart': {
+    'curve': 'linear'
+  },
+  'class': {
+    'fontSize': '14px',
+    'nodePadding': 10
+  }
+}}%%
 classDiagram
 direction TB
     class SalesChannel {
-	    +salesChannelID: UUID
-	    +channelType: enum ChannelType
+        +salesChannelID: UUID
+        +channelType: enum ChannelType
     }
-
     class Distributor {
-	    +distributorID: UUID
-	    +distributorNumber: String
-	    +groupID: UUID
-	    +class: String
-	    +hasPortalAccess: Boolean
-	    +hasPortalAccessDefault: Boolean
-	    +activeFromDateTime: DateTime
+        +distributorID: UUID
+        +distributorNumber: String
+        +groupID: UUID
+        +class: String
+        +hasPortalAccess: Boolean
+        +hasPortalAccessDefault: Boolean
+        +activeFromDateTime: DateTime
     }
-
     class DistributorGroup {
-	    +distributorGroupID: UUID
-	    +name: String
+        +distributorGroupID: UUID
+        +name: String
     }
-
     class DistributorTeam {
-	    +distributorTeamID: UUID
-	    +name: String
-	    +order: Int
-	    +parentTeamID: UUID
+        +distributorTeamID: UUID
+        +name: String
+        +order: Int
+        +parentTeamID: UUID
     }
-
     class Agent {
-	    +agentID: UUID
-	    +agentNumber: String
-	    +name: String
-	    +status: enum AgentStatus
-	    +role: enum TeamRole
-	    +terminationType: enum TerminationType
-	    +reactivationType: enum ReactivationType
+        +agentID: UUID
+        +agentNumber: String
+        +name: String
+        +status: enum AgentStatus
+        +role: enum TeamRole
+        +terminationType: enum TerminationType
+        +reactivationType: enum ReactivationType
     }
-
     class Product {
-	    +productID: UUID
-	    +name: String
-	    +lifecycleStage: enum ProductLifecycle
+        +productID: UUID
+        +name: String
+        +lifecycleStage: enum ProductLifecycle
     }
-
     class Party {
-	    +distributorName: String
+        +distributorName: String
     }
-
     class BankAccount {
-	    +bankAccNumber: String
-	    +bankAccName: String
-	    +bankAccCurrency: String
-	    +bankAccAddress: String
-	    +bankID: String
-	    +branchID: String
-	    +isPrimary: Boolean
+        +bankAccNumber: String
+        +bankAccName: String
+        +bankAccCurrency: String
+        +bankAccAddress: String
+        +bankID: String
+        +branchID: String
+        +isPrimary: Boolean
     }
-
     class PaymentData {
-	    +paymentTo: enum PaymentTo
-	    +paymentCurrency: String
-	    +paymentFrequency: enum Frequency
-	    +heldPayment: Boolean
-	    +minThreshold: Float
-	    +canAgentsReadCommissions: Boolean
-	    +umbrellaPaymentRule: Boolean
+        +paymentTo: enum PaymentTo
+        +paymentCurrency: String
+        +paymentFrequency: enum Frequency
+        +heldPayment: Boolean
+        +minThreshold: Float
+        +canAgentsReadCommissions: Boolean
+        +umbrellaPaymentRule: Boolean
     }
-
     class ChannelType {
-	    BRKR
-	    InternalSalesforce
-	    Aggregators
+        BRKR
+        InternalSalesforce
+        Aggregators
     }
-
     class AgentStatus {
-	    ACTIVE
-	    TERMINATED
-	    SCHEDULED_TERMINATION
-	    SOFT_DELETED
+        ACTIVE
+        TERMINATED
+        SCHEDULED_TERMINATION
+        SOFT_DELETED
     }
-
     class TeamRole {
-	    AGENT
-	    MANAGER
-	    ASSISTANT_MANAGER
+        AGENT
+        MANAGER
+        ASSISTANT_MANAGER
     }
-
     class TerminationType {
-	    IMMEDIATE
-	    SCHEDULED
+        IMMEDIATE
+        SCHEDULED
     }
-
     class ReactivationType {
-	    IMMEDIATE
-	    SCHEDULED
+        IMMEDIATE
+        SCHEDULED
     }
-
     class ProductLifecycle {
-	    DRAFT
-	    PUBLISHED
-	    ARCHIVED
+        DRAFT
+        PUBLISHED
+        ARCHIVED
     }
-
     class PaymentTo {
-	    DISTRIBUTOR
-	    AGENT
+        DISTRIBUTOR
+        AGENT
     }
-
     class Frequency {
-	    MONTHLY
-	    QUARTERLY
-	    ANNUALLY
+        MONTHLY
+        QUARTERLY
+        ANNUALLY
     }
-
-	<<enum>> ChannelType
-	<<enum>> AgentStatus
-	<<enum>> TeamRole
-	<<enum>> TerminationType
-	<<enum>> ReactivationType
-	<<enum>> ProductLifecycle
-	<<enum>> PaymentTo
-	<<enum>> Frequency
-
+    <<enum>> ChannelType
+    <<enum>> AgentStatus
+    <<enum>> TeamRole
+    <<enum>> TerminationType
+    <<enum>> ReactivationType
+    <<enum>> ProductLifecycle
+    <<enum>> PaymentTo
+    <<enum>> Frequency
     SalesChannel --> "0..*" Distributor
     Distributor --> "1" Party
     Distributor --> "0..*" BankAccount
@@ -135,5 +134,6 @@ direction TB
     DistributorTeam --> "0..1" DistributorTeam : parentTeam
     Agent --> DistributorTeam : assignedTo
     Product --> "0..*" Distributor : released to
+
 
 
