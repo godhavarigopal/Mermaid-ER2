@@ -1,17 +1,6 @@
 ```mermaid
 %%{init: {
   'theme': 'neutral',
-  'themeVariables': {
-    'primaryColor': '#3b4c4f',
-    'edgeLabelBackground': '#f9f9f9',
-    'tertiaryColor': '#a0a0a0',
-    'lineColor': '#666666',
-    'fontSize': '13px',
-    'fontFamily': 'Arial, sans-serif',
-    'classBackground': '#ffffff',
-    'classBorder': '#5a6d70',
-    'classShadow': '2px 2px 5px rgba(90,109,112,0.2)'
-  },
   'flowchart': {
     'curve': 'linear'
   },
