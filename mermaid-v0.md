@@ -16,8 +16,8 @@
     'curve': 'linear'
   },
   'class': {
-    'fontSize': '13px',
-    'nodePadding': 25
+    'fontSize': '20px',
+    'nodePadding': 10
   }
 }}%%
 classDiagram
