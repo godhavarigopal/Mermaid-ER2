@@ -1,4 +1,5 @@
 ```mermaid
+%%{init: {'theme': 'forest'}}%%
 classDiagram
 direction TB
     class SalesChannel {
